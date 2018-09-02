@@ -15,6 +15,7 @@ class Album extends Component {
       currentSong: album.songs[0],
       currentTime: 0,
       duration: album.songs[0].duration,
+      volume: 1,
       isPlaying: false,
       isHovered: false
     };
@@ -30,10 +31,14 @@ class Album extends Component {
       },
       durationchange: e => {
         this.setState({ duration: this.audioElement.duration });
+      },
+      volumeupdate: e => {
+        this.setState({ volume: this.audioElement.volume });
       }
     };
     this.audioElement.addEventListener('timeupdate', this.eventListeners.timeupdate);
     this.audioElement.addEventListener('durationchange', this.eventListeners.durationchange);
+    this.audioElement.addEventListener('volumeupdate', this.eventListeners.volumeupdate);
   }
 
   // stops audio playback when leaving album page and terminate the EventListeners 
@@ -41,6 +46,7 @@ class Album extends Component {
     this.audioElement.src = null;
     this.audioElement.removeEventListener('timeupdate', this.eventListeners.timeupdate);
     this.audioElement.removeEventListener('durationchange', this.eventListeners.durationchange);
+    this.audioElement.removeEventListener('volumeupdate', this.eventListeners.volumeupdate);
   }
 
   play() {
@@ -91,6 +97,12 @@ class Album extends Component {
     this.setState({ currentTime: newTime });
   }
 
+  handleVolumeChange(e) {
+    const newVolume = e.target.value;
+    this.audioElement.volume = newVolume;
+    this.setState({ volume: newVolume });
+  }
+
   playPauseHover(index) {
     if (this.state.currentSong.title === this.state.album.songs[index].title && this.state.isPlaying === true){
   return <span className="ion-pause"></span>
@@ -101,7 +113,19 @@ class Album extends Component {
   return <span>{ index + 1 }</span>
   }
  }
-}
+  }
+
+  formatTime(seconds) {
+   var minutes = 0;
+   if (seconds / 60 > 0) {
+     minutes = Math.floor(seconds / 60);
+     seconds = Math.floor(seconds % 60);
+     return minutes + ':' + (seconds > 9 ? seconds : '0' + seconds);
+   } else {
+     return ("-:--");
+   }
+  }
+
 
   render() {
     return (
@@ -135,12 +159,15 @@ class Album extends Component {
         <PlayerBar 
           isPlaying={this.state.isPlaying} 
           currentSong={this.state.currentSong}
+          formattedTime={this.formatTime(this.audioElement.currentTime)}
+          formattedDuration={this.formatTime(this.audioElement.duration)}
           currentTime={this.audioElement.currentTime}
           duration={this.audioElement.duration}
           handleSongClick={() => this.handleSongClick(this.state.currentSong)}
           handlePrevClick={() => this.handlePrevClick()}
           handleNextClick={() => this.handleNextClick()}
           handleTimeChange={(e) => this.handleTimeChange(e)}
+          handleVolumeChange={(e) => this.handleVolumeChange(e)}
         />
      </section>
     ); 
