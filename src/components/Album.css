@@ -1,4 +1,4 @@
-.player-button {
-    position: absolute;
-    bottom: 0;
+.player-bar {
+  set position: absolute;
+  bottom: 0;
 }
