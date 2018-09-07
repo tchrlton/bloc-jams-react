@@ -1,6 +1,16 @@
+.img-container {
+    width: 560px;
+    height: 560px;
+}
+
 .player-bar {
-    position: absolute;
-    top: 300 px;
-	left: 300x;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.artist {
+    font-size: 30pt;
 }
 

@@ -133,21 +133,21 @@ class Album extends Component {
       <div className="container">
        <div className="row">
         <section id="album-info" className="col-sm-6">
-          <div className="container">
+          <div className="img-container">
            <img id="album-cover-art" src={this.state.album.albumCover} alt={this.state.album.title} />
            <div className="player-bar">
             <PlayerBar
-             isPlaying={this.state.isPlaying} 
-             currentSong={this.state.currentSong}
-             formattedTime={this.formatTime(this.audioElement.currentTime)}
-             formattedDuration={this.formatTime(this.audioElement.duration)}
-             currentTime={this.audioElement.currentTime}
-             duration={this.audioElement.duration}
-             handleSongClick={() => this.handleSongClick(this.state.currentSong)}
-             handlePrevClick={() => this.handlePrevClick()}
-             handleNextClick={() => this.handleNextClick()}
-             handleTimeChange={(e) => this.handleTimeChange(e)}
-             handleVolumeChange={(e) => this.handleVolumeChange(e)}
+              isPlaying={this.state.isPlaying} 
+              currentSong={this.state.currentSong}
+              formattedTime={this.formatTime(this.audioElement.currentTime)}
+              formattedDuration={this.formatTime(this.audioElement.duration)}
+              currentTime={this.audioElement.currentTime}
+              duration={this.audioElement.duration}
+              handleSongClick={() => this.handleSongClick(this.state.currentSong)}
+              handlePrevClick={() => this.handlePrevClick()}
+              handleNextClick={() => this.handleNextClick()}
+              handleTimeChange={(e) => this.handleTimeChange(e)}
+              handleVolumeChange={(e) => this.handleVolumeChange(e)}
             />
            </div>
           </div>
