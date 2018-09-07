@@ -1,16 +1,19 @@
 .img-container {
+    position: relative;
     width: 560px;
     height: 560px;
 }
 
 .player-bar {
-    position: fixed;
-    bottom: 0;
+    position: absolute;
+    bottom: 20px;
     left: 0;
     right: 0;
+    color: white;
 }
 
 .artist {
-    font-size: 30pt;
+   font-size: 20pt;
 }
+
 
