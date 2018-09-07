@@ -1,4 +1,6 @@
 .player-bar {
-  set position: absolute;
-  bottom: 0;
+    position: absolute;
+    top: 300 px;
+	left: 300x;
 }
+
