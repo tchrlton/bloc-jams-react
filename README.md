@@ -1,5 +1,9 @@
+#React Jams
+
 ##### What's used:
 * ReactJS
+* HTML5
+* CSS3
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 

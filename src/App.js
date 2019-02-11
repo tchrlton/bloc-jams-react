@@ -14,7 +14,7 @@ class App extends Component {
             <Link to='/'>Landing</Link>
             <Link to='/library'>Library</Link>
           </nav>
-          <h1 className="main-header">Bloc Jams</h1>
+          <h1 className="main-header">React Jams</h1>
         </header>
         <main>
           <Route exact path="/" component={Landing} />
