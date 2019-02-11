@@ -1,4 +1,4 @@
-#React Jams
+# React Jams
 
 ##### What's used:
 * ReactJS
